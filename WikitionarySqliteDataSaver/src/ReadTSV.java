@@ -25,7 +25,7 @@ public class ReadTSV {
 		
 		String word="",type="",mean="";
 		try {
-			String dataFileName = "/Users/munish/Desktop/demo.tsv";
+			String dataFileName = "/Users/munish/Desktop/all.tsv";
 			Reader reader = new InputStreamReader(new FileInputStream(dataFileName),"UTF-8");
 			BufferedReader bReader = new BufferedReader(reader);
 			String line;
@@ -49,17 +49,17 @@ public class ReadTSV {
 			    			 datavalue[i].equalsIgnoreCase("Infix")||			    			 
 			    			 datavalue[i].equalsIgnoreCase("Verb")){
 			    		     type="("+datavalue[i]+")";
-			    		     //System.out.print("("+datavalue[i]+")\t");
+			    		     System.out.print("("+datavalue[i]+")\t");
 			    	  }else{
 			    		  if(!datavalue[i].equalsIgnoreCase("English")){
 			    			if(datavalue[i].startsWith("#")){
 			    			 String temp=datavalue[i]; 
 			    			 temp=temp.replace("#", "");
 			    			 mean=temp;
-			    		     //System.out.print(""+temp+"\t");
+			    		     System.out.print(""+temp+"\t");
 			    			}else{
 			    			 word=datavalue[i];
-			    		     //System.out.print(""+datavalue[i]+"\t");
+			    		     System.out.print(""+datavalue[i]+"\t");
 			    			}
 			    		  }
 			    	  }
@@ -67,7 +67,7 @@ public class ReadTSV {
 			    if(word!="" && type!="" && mean!=""){
 			      data.add(new DicGetSet(word,type,mean));
 			    }
-			    //System.out.println();
+			    System.out.println();
 			}
 			bReader.close();
 		} catch (NumberFormatException e) {
@@ -80,7 +80,7 @@ public class ReadTSV {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		initData(data);
+		//initData(data);
 	}
 	public static void printData(List<DicGetSet> d) throws Exception{
 		for(int i=0;i<d.size();i++){
